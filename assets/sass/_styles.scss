@@ -166,16 +166,37 @@ input {
 /* Header */
 
 header.site-header {
-  padding: 20px 0;
   position: absolute;
   width: 100%;
   z-index: 5000;
+  padding-top: 40px;
+
+  .triangle-top {
+    width: 0;
+    height: 0;
+    border-top: $triangle solid $link;
+    border-left: $triangle solid $link;
+    border-bottom: $triangle solid transparent;
+    border-right: $triangle solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #logo {
+    position: absolute;
+    top: $triangle*0.35;
+    left: $triangle*0.35;
+    width: $fs2;
+  }
 
   .wrap {
     max-width: 90vw;
+    @include column(8);
+    @include push(1);
   }
 
-  a {
+  hgroup a {
     color: $black;
     @include transit(all, .2s, ease-in-out);
 
@@ -187,18 +208,8 @@ header.site-header {
 
   nav a {
     color: $black;
-
-    &:active {
-      color: $link;
-    }
-
-    &:hover {
-      text-shadow: none;
-      color: $link;
-    }
   }
 }
-
 
 header.site-header a.menu {
   display: none;
@@ -208,16 +219,18 @@ header.site-header hgroup h1, header.site-header nav ul {
   font-family: $sans;
 }
 header.site-header hgroup {
-  float: left;
-  padding-left: 5vw;
+  float: right;
+  padding-right: 5vw;
+  @include clearfix;
 
   h1 {
     font-weight: 700;
-    font-size: 18px;
+    font-size: $fs3;
     line-height: 100%;
     color: $accent;
     letter-spacing: 2px;
     text-transform: uppercase;
+    padding: 20px 0;
   }
 }
 
@@ -225,16 +238,24 @@ header.site-header nav {
   float: right;
   display: block;
   padding-right: 5vw;
-  @include clearfix;
+  clear: right;
 
   ul li {
-    font-size: 16px;
-    text-transform: uppercase;
-    display: inline;
-    font-weight: bold;
-    top: 2px;
+    font-size: 18px;
+    display: inline-block;
     position: relative;
     margin-left: 20px;
+    padding-bottom: 4px;
+    
+
+    &:active {
+      border-bottom: 2px solid $link;
+    }
+
+    &:hover {
+      text-shadow: none;
+      border-bottom: 2px solid $link;
+    }
   }
 }
 
@@ -549,10 +570,10 @@ header.site-header-lighter {
 
 footer {
   width: 100%;
-  background: $black;
+  background: $white;
   height: $footerHeight;
   font-size: $fsp;
-  color: $white;
+  color: $black;
   position: relative;
 
   // Contain that ish
@@ -644,6 +665,17 @@ footer {
         }
       }
     }
+  }
+
+  .triangle-bottom {
+    width: 0;
+    height: 0;
+    border-top: $triangle solid transparent;
+    border-left: $triangle solid transparent;
+    border-bottom: $triangle solid $link;
+    border-right: $triangle solid $link;
+    position: absolute;
+    right: 0;
   }
 }
 

@@ -24,7 +24,7 @@
 
 <!-- Type -->
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700,700italic" rel='stylesheet' type='text/css' />
-<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
 
 <!-- symbolset icons -->
 <link href="//cdn.symbolset.com/{{ site.meta.symbolset }}/symbolset.css" rel="stylesheet">
@@ -53,6 +53,8 @@
 <div id="bump">
   <body>
     <header class="site-header{% if meta.feature and meta.dark %} site-header-lighter{% endif %}">
+      <div class="triangle-top"></div>
+      <img src="/assets/logo.svg" id="logo" alt="Ningxia Zhang">
       <div class="wrap">
         <hgroup>
           <h1><a href="/">{{ site.title }}</a></h1>
@@ -81,7 +83,7 @@
       <aside class="wrap">
         <ol class="prev-posts">
           <p class="list-title">Recent Posts</p>
-          {% for post in site.pages.articles.posts | limit:3 %}
+          {% for post in site.pages.notes.posts | limit:3 %}
           <li>
             <span class="recent-title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title | strip_html | strip_newlines | truncate: 30 }} </a></span>
             <span class="date">{{ post.date | date: "%b %d, %Y" }}</span>
@@ -104,6 +106,7 @@
         </div>
       </aside>
       <small>&copy; {{ site.time | date: '%Y' }} {{ site.meta.name }}. Powered by <a href="http://siteleaf.com">Siteleaf</a> using the <a href="https://github.com/destroytoday/Balzac-for-Siteleaf">Balzac</a> theme.</small>
+      <div class="triangle-bottom"></div>
     </footer>
 
     <!-- If they're out, get some from the cellar -->
