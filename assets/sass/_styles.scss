@@ -230,7 +230,7 @@ header.site-header hgroup {
     color: $accent;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 20px 0;
+    padding: 16px 0;
   }
 }
 
@@ -246,6 +246,7 @@ header.site-header nav {
     position: relative;
     margin-left: 20px;
     padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
     
 
     &:active {
@@ -358,14 +359,14 @@ header.site-header-lighter {
   display: block;
   margin: 0 auto;
   float: none;
-  padding-top: 140px;
+  padding-top: 180px;
 
   // Post Listing
   .post-list {
     list-style-type: none;
     list-style: none;
-    @include column(7);
-    @include push(2);
+    @include column(8);
+    @include push(1);
     display: block;
     float: none;
 
@@ -387,30 +388,16 @@ header.site-header-lighter {
         }
       }
 
-      a:hover:before {
-        content:'...';
-        color: $grey-light;
-        font-family: $sans;
-        position: absolute;
-        margin-left: -70px;
-        font-size: 40px;
-        left: 0;
-        top: -20px;
-        text-align: center;
-        @include transit;
-      }
-
       a:before {
         content:'“';
         color: $grey-light;
         position: absolute;
-        margin-left: -70px;
+        margin-left: -60px;
         font-size: 60px;
         z-index: 10;
         top: -6px;
         left: 0;
         text-align: center;
-        @include transit;
       }
 
       h1 {
@@ -446,6 +433,7 @@ header.site-header-lighter {
 
 .post {
   min-height: 500px;
+  padding-top: 35px;
 
   .deets {
     position: relative;
@@ -462,15 +450,17 @@ header.site-header-lighter {
     }
   }
 
-  h1 {
+  h2 {
     font-style: italic;
   }
 
   h1, h2, h3, h4, h5 {
     padding-top: ($lh * 1/2);
     margin-bottom: ($lh * 1/2);
-    line-height: 1.25em
+    line-height: 1.25em;
   }
+
+
 
   figure {
     margin: $lh 0;
